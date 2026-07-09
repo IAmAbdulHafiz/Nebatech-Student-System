@@ -1,18 +1,18 @@
+<?php
+require_once __DIR__ . '/auth.php';
+requireLogin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Nebatech Student Registration System</title>
-
     <link rel="stylesheet" href="css/style.css">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
 
 <header>
-
     <div class="logo">
         <h2>NEBATECH</h2>
     </div>
@@ -23,9 +23,10 @@
 
     <div class="user">
         <i class="fa fa-user"></i>
-        Administrator
+        <?php echo htmlspecialchars(currentUserName()); ?>
+        <span class="role-badge"><?php echo htmlspecialchars(roleLabel(currentUserRole())); ?></span>
+        <a class="logout-link" href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
     </div>
-
 </header>
 
 <div class="container">
